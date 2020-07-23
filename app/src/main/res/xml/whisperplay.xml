@@ -1,0 +1,12 @@
+<whisperplay>
+    <services>
+        <service>
+            <sid>sagre.HomeGymTV.player</sid>
+            <accessLevels>
+                <accessLevel>ALL</accessLevel>
+            </accessLevels>
+            <startService>com.amazon.whisperplay.fling.media.player.CustomMediaPlayerService</startService>
+        </service>
+    </services>
+</whisperplay>
+

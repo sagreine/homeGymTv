@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\sagre\\Desktop\\CustomPlayerSample\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_media_viewer.xml.flat",
+        "source": "C:\\Users\\sagre\\Desktop\\CustomPlayerSample\\app\\src\\main\\res\\layout\\activity_media_viewer.xml"
+    },
+    {
+        "merged": "C:\\Users\\sagre\\Desktop\\CustomPlayerSample\\app\\build\\intermediates\\res\\merged\\debug\\xml_whisperplay.xml.flat",
+        "source": "C:\\Users\\sagre\\Desktop\\CustomPlayerSample\\app\\src\\main\\res\\xml\\whisperplay.xml"
+    },
+    {
+        "merged": "C:\\Users\\sagre\\Desktop\\CustomPlayerSample\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_launcher_splash.xml.flat",
+        "source": "C:\\Users\\sagre\\Desktop\\CustomPlayerSample\\app\\src\\main\\res\\layout\\activity_launcher_splash.xml"
+    }
+]
