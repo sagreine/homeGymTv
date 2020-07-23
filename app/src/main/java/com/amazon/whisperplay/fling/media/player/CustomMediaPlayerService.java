@@ -144,6 +144,14 @@ public class CustomMediaPlayerService extends MediaPlayerHostService {
             return null;
         }
 
+        @Override
+        public String getDescription() {
+            if (mImpl != null) {
+                return mImpl.getDescription();
+            }
+            return null;
+        }
+
         /**
          * {@inheritDoc}
          */

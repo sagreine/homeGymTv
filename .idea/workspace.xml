@@ -2,17 +2,26 @@
 <project version="4">
   <component name="AndroidLayouts">
     <shared>
-      <config />
+      <config>
+        <device id="tv_1080p" />
+      </config>
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b2bbc12-d7e7-4c5d-b549-75ca10ba2b43" name="Default Changelist" comment="" />
+    <list default="true" id="9b2bbc12-d7e7-4c5d-b549-75ca10ba2b43" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/activity/IMediaViewControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/activity/IMediaViewControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_media_viewer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_media_viewer.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="016AY1RXLG" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="10.0.0.27:5555" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -31,7 +40,11 @@
     <option name="KEY_ALIAS" value="amznHGTV" />
     <option name="REMEMBER_PASSWORDS" value="true" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1euSlviDSyi1c29fNV0ONQYb0fH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -40,10 +53,11 @@
   <component name="PropertiesComponent">
     <property name="BundleExportedModule" value="app" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="10.0.0.27:5555" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-07-23T00:16:46.589Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-07-23T00:45:52.824Z" />
     <property name="ExportApk.ApkPath" value="C:\Users\sagre\Desktop\CustomPlayerSample\app" />
     <property name="ExportApk.BuildVariants" value="debug" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../FlingSDKSamples/CustomPlayerSample" />
     <property name="project.structure.last.edited" value="Dependencies" />
@@ -143,22 +157,22 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="769" y="319" key="FileChooserDialogImpl/0.0.1920.1160@0.0.1920.1160" timestamp="1595460203537" />
-    <state width="916" height="323" key="GridCell.Tab.0.bottom" timestamp="1595463285768">
+    <state width="1877" height="320" key="GridCell.Tab.0.bottom" timestamp="1595465173766">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="916" height="323" key="GridCell.Tab.0.bottom/0.0.1920.1160@0.0.1920.1160" timestamp="1595463285768" />
-    <state width="916" height="323" key="GridCell.Tab.0.center" timestamp="1595463285767">
+    <state width="1877" height="320" key="GridCell.Tab.0.bottom/0.0.1920.1160@0.0.1920.1160" timestamp="1595465173766" />
+    <state width="1877" height="320" key="GridCell.Tab.0.center" timestamp="1595465173766">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="916" height="323" key="GridCell.Tab.0.center/0.0.1920.1160@0.0.1920.1160" timestamp="1595463285767" />
-    <state width="916" height="323" key="GridCell.Tab.0.left" timestamp="1595463285767">
+    <state width="1877" height="320" key="GridCell.Tab.0.center/0.0.1920.1160@0.0.1920.1160" timestamp="1595465173766" />
+    <state width="1877" height="320" key="GridCell.Tab.0.left" timestamp="1595465173766">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="916" height="323" key="GridCell.Tab.0.left/0.0.1920.1160@0.0.1920.1160" timestamp="1595463285767" />
-    <state width="916" height="323" key="GridCell.Tab.0.right" timestamp="1595463285768">
+    <state width="1877" height="320" key="GridCell.Tab.0.left/0.0.1920.1160@0.0.1920.1160" timestamp="1595465173766" />
+    <state width="1877" height="320" key="GridCell.Tab.0.right" timestamp="1595465173766">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="916" height="323" key="GridCell.Tab.0.right/0.0.1920.1160@0.0.1920.1160" timestamp="1595463285768" />
+    <state width="1877" height="320" key="GridCell.Tab.0.right/0.0.1920.1160@0.0.1920.1160" timestamp="1595465173766" />
     <state width="949" height="395" key="GridCell.Tab.1.bottom" timestamp="1595462363585">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -197,32 +211,32 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java</url>
-          <line>314</line>
+          <line>319</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java</url>
-          <line>315</line>
+          <line>320</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java</url>
-          <line>316</line>
+          <line>321</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java</url>
-          <line>369</line>
+          <line>376</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java</url>
-          <line>348</line>
+          <line>353</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java</url>
-          <line>734</line>
+          <line>743</line>
           <properties class="com.amazon.whisperplay.fling.media.player.CustomMediaPlayerImplementation.CommandQueue" method="setImage" />
           <option name="timeStamp" value="35" />
         </line-breakpoint>

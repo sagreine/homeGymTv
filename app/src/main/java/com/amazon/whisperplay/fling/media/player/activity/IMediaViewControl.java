@@ -27,6 +27,13 @@ public interface IMediaViewControl extends CustomMediaPlayer {
     public String getTitle();
 
     /**
+     * Returns current Media Description, if any
+     *
+     * @return description or null
+     */
+    public String getDescription();
+
+    /**
      * Set the surface holder to display media on
      *
      * @param holder

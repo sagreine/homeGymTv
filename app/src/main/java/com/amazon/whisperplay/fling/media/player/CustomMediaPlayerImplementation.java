@@ -62,6 +62,7 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
     private boolean mMute;
     private List<String> mMimeTypes;
     private String mCurrentTitle;
+    private String mCurrentDescription;
     private String mMediaType;
     private MediaPlayerInfo mPendingMediaInfo = null;
     private MediaPlayerInfo mCurrentMediaInfo = null;
@@ -148,6 +149,10 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
 
     public String getTitle() {
         return mCurrentTitle;
+    }
+
+    public String getDescription() {
+        return mCurrentDescription;
     }
 
     public void setBinderStatus(boolean status) {
@@ -361,10 +366,12 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
             JSONObject jobj = (JSONObject) new JSONTokener(metadataJson).nextValue();
             mCurrentTitle = jobj.getString("title");
             mMediaType = jobj.optString("type");
+            mCurrentDescription = jobj.optString("description");
         } catch (JSONException e) {
             Log.e(TAG, "Cannot parse Metadata", e);
             mCurrentTitle = null;
             mMediaType = null;
+            mCurrentDescription = null;
         }
 
         mPendingMediaInfo = new MediaPlayerInfo(mediaLoc, metadataJson, null);
@@ -581,11 +588,13 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
             mCurrentTitle = null;
             mMediaType = null;
             mCurrentMediaInfo = null;
+            mCurrentDescription = null;
             return;
         }
         mCurrentTitle = null;
         mMediaType = null;
         mCurrentMediaInfo = null;
+        mCurrentDescription = null;
         boolean isReseting = (curState == MediaState.NoSource || curState == MediaState.PreparingMedia);
         setState(MediaState.Finished, !isReseting);
         if (mPlayer != null && mQueue != null && !isReseting) {
