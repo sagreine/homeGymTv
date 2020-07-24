@@ -63,6 +63,7 @@ public class MediaViewer extends Activity {
 
     // Media information layout with alpha during playing
     private RelativeLayout mMediaInfoLayout;
+    private RelativeLayout mMediaInfoPersistentLayout;
     private SeekBar mSeekBar;
     private TextView mMediaTitle;
     private TextView mMediaDescription;
@@ -178,6 +179,7 @@ public class MediaViewer extends Activity {
         mPlayerSurfaceView = findViewById(R.id.surfaceViewPlayer);
         mFakeBackground = findViewById(R.id.fake_background);
         mMediaInfoLayout = (RelativeLayout)findViewById(R.id.media_info_layout);
+        //mMediaInfoPersistentLayout = (RelativeLayout)findViewById(R.id.media_info_persistent_layout);
         mSeekBar = (SeekBar)findViewById(R.id.seekBar);
         mMediaTitle = (TextView)findViewById(R.id.media_title);
         mMediaDescription = (TextView)findViewById(R.id.media_description);
@@ -435,14 +437,14 @@ public class MediaViewer extends Activity {
         mTotalDuration.setVisibility(View.GONE);
         mMediaTitle.animate().cancel();
         mMediaTitle.setVisibility(View.GONE);
-        mMediaDescription.animate().cancel();
-        mMediaDescription.setVisibility(View.GONE);
+        //mMediaDescription.animate().cancel();
+        //mMediaDescription.setVisibility(View.GONE);
         mSeekBar.setProgress(0);
         mSeekBar.setMax(0);
         mTotalDuration.setText(getString(R.string.init_time));
         mCurrentPosition.setText(getString(R.string.init_time));
         mMediaTitle.setText(getString(R.string.empty));
-        mMediaDescription.setText(getString(R.string.empty));
+        //mMediaDescription.setText(getString(R.string.empty));
     }
 
     private void animateMediaInfo(boolean fade, boolean isAudio) {
@@ -462,9 +464,9 @@ public class MediaViewer extends Activity {
             mMediaTitle.animate().cancel();
             mMediaTitle.setAlpha(1f);
             mMediaTitle.setVisibility(View.VISIBLE);
-            mMediaDescription.animate().cancel();
-            mMediaDescription.setAlpha(1f);
-            mMediaDescription.setVisibility(View.VISIBLE);
+            //mMediaDescription.animate().cancel();
+            //mMediaDescription.setAlpha(1f);
+            //mMediaDescription.setVisibility(View.VISIBLE);
         } else {
             mMediaInfoLayout.setAlpha(1f);
             mMediaInfoLayout.setVisibility(View.VISIBLE);
@@ -476,7 +478,7 @@ public class MediaViewer extends Activity {
             mTotalDuration.setVisibility(View.VISIBLE);
             mMediaTitle.setAlpha(1f);
             mMediaTitle.setVisibility(View.VISIBLE);
-            mMediaDescription.setAlpha(1f);
+            //mMediaDescription.setAlpha(1f);
             mMediaDescription.setVisibility(View.VISIBLE);
             if (!markPaused) {
                 mMediaInfoLayout.animate().alpha(0f).setDuration(5000);
@@ -484,7 +486,7 @@ public class MediaViewer extends Activity {
                 mCurrentPosition.animate().alpha(0f).setDuration(5000);
                 mTotalDuration.animate().alpha(0f).setDuration(5000);
                 mMediaTitle.animate().alpha(0f).setDuration(5000);
-                mMediaDescription.animate().alpha(0f).setDuration(5000);
+                //mMediaDescription.animate().alpha(0f).setDuration(5000);
             }
         }
     }

@@ -9,11 +9,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b2bbc12-d7e7-4c5d-b549-75ca10ba2b43" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/activity/IMediaViewControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/activity/IMediaViewControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/bundle_ide_model/debug/output.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex_archive_input_jar_hashes/debug/out" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex_archive_input_jar_hashes/debug/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/ag9v2pgj5AkH_d2YqQbgfCBgO1M=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeNativeLibs/zip-cache/ag9v2pgj5AkH_d2YqQbgfCBgO1M=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/javaResources0" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/javaResources0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/intermediary_bundle/debug/app-debug.aab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$FinishTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$FinishTask.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/amazon/whisperplay/fling/media/player/activity/MediaViewer.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/amazon/whisperplay/fling/media/player/activity/MediaViewer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/linked_res_for_bundle/debug/bundled-res.ap_" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_java_res/debug/out.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_java_res/debug/out.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/module_bundle/debug/out/base.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/out/resources-debug.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/out/resources-debug.ap_" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/59c9a472e3e2f1add6c8026c50aa5bdd5d5a140179e41f49f07945069cf574a4_0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/59c9a472e3e2f1add6c8026c50aa5bdd5d5a140179e41f49f07945069cf574a4_1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/59c9a472e3e2f1add6c8026c50aa5bdd5d5a140179e41f49f07945069cf574a4_3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/59c9a472e3e2f1add6c8026c50aa5bdd5d5a140179e41f49f07945069cf574a4_4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/59c9a472e3e2f1add6c8026c50aa5bdd5d5a140179e41f49f07945069cf574a4_5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$1.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$2.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$2.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$3.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$3.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$4.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$4.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$5.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$5.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$FinishTask.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/amazon/whisperplay/fling/media/player/activity/MediaViewer$FinishTask.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/amazon/whisperplay/fling/media/player/activity/MediaViewer.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/amazon/whisperplay/fling/media/player/activity/MediaViewer.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_media_viewer.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_media_viewer.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/runtime_symbol_list/debug/R.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/runtime_symbol_list/debug/R.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/activity/MediaViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/activity/MediaViewer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_media_viewer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_media_viewer.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +67,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="10.0.0.27:5555" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="016AY1RXLG" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -53,13 +99,13 @@
   <component name="PropertiesComponent">
     <property name="BundleExportedModule" value="app" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="10.0.0.27:5555" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-07-23T00:45:52.824Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-07-23T23:57:42.387Z" />
     <property name="ExportApk.ApkPath" value="C:\Users\sagre\Desktop\CustomPlayerSample\app" />
     <property name="ExportApk.BuildVariants" value="debug" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FlingSDKSamples/CustomPlayerSample" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FlingSDKSamples/FlingSample" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.20304568" />
@@ -153,26 +199,26 @@
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
     <state x="497" y="289" key="#app/0.0.1920.1160@0.0.1920.1160" timestamp="1595460341761" />
-    <state x="769" y="319" key="FileChooserDialogImpl" timestamp="1595460203537">
+    <state x="769" y="319" key="FileChooserDialogImpl" timestamp="1595465403945">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state x="769" y="319" key="FileChooserDialogImpl/0.0.1920.1160@0.0.1920.1160" timestamp="1595460203537" />
-    <state width="1877" height="320" key="GridCell.Tab.0.bottom" timestamp="1595465173766">
+    <state x="769" y="319" key="FileChooserDialogImpl/0.0.1920.1160@0.0.1920.1160" timestamp="1595465403945" />
+    <state width="1877" height="412" key="GridCell.Tab.0.bottom" timestamp="1595548721422">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1877" height="320" key="GridCell.Tab.0.bottom/0.0.1920.1160@0.0.1920.1160" timestamp="1595465173766" />
-    <state width="1877" height="320" key="GridCell.Tab.0.center" timestamp="1595465173766">
+    <state width="1877" height="412" key="GridCell.Tab.0.bottom/0.0.1920.1160@0.0.1920.1160" timestamp="1595548721422" />
+    <state width="1877" height="412" key="GridCell.Tab.0.center" timestamp="1595548721422">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1877" height="320" key="GridCell.Tab.0.center/0.0.1920.1160@0.0.1920.1160" timestamp="1595465173766" />
-    <state width="1877" height="320" key="GridCell.Tab.0.left" timestamp="1595465173766">
+    <state width="1877" height="412" key="GridCell.Tab.0.center/0.0.1920.1160@0.0.1920.1160" timestamp="1595548721422" />
+    <state width="1877" height="412" key="GridCell.Tab.0.left" timestamp="1595548721422">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1877" height="320" key="GridCell.Tab.0.left/0.0.1920.1160@0.0.1920.1160" timestamp="1595465173766" />
-    <state width="1877" height="320" key="GridCell.Tab.0.right" timestamp="1595465173766">
+    <state width="1877" height="412" key="GridCell.Tab.0.left/0.0.1920.1160@0.0.1920.1160" timestamp="1595548721422" />
+    <state width="1877" height="412" key="GridCell.Tab.0.right" timestamp="1595548721422">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
-    <state width="1877" height="320" key="GridCell.Tab.0.right/0.0.1920.1160@0.0.1920.1160" timestamp="1595465173766" />
+    <state width="1877" height="412" key="GridCell.Tab.0.right/0.0.1920.1160@0.0.1920.1160" timestamp="1595548721422" />
     <state width="949" height="395" key="GridCell.Tab.1.bottom" timestamp="1595462363585">
       <screen x="0" y="0" width="1920" height="1160" />
     </state>
@@ -211,28 +257,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java</url>
-          <line>319</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java</url>
-          <line>320</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java</url>
-          <line>321</line>
-          <option name="timeStamp" value="29" />
+          <line>353</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java</url>
           <line>376</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java</url>
-          <line>353</line>
-          <option name="timeStamp" value="33" />
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/amazon/whisperplay/fling/media/player/CustomMediaPlayerImplementation.java</url>
