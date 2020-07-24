@@ -128,7 +128,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/surfaceViewPlayer"
         android:layout_marginStart="13dp"
-        android:layout_marginTop="405dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="254dp"
         android:ellipsize="end"
