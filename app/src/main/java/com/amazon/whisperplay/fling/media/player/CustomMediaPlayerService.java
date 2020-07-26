@@ -152,6 +152,14 @@ public class CustomMediaPlayerService extends MediaPlayerHostService {
             return null;
         }
 
+        @Override
+        public int getRestInterval() {
+            if (mImpl != null) {
+                return mImpl.getRestInterval();
+            }
+            return 0;
+        }
+
         /**
          * {@inheritDoc}
          */

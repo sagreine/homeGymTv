@@ -63,6 +63,7 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
     private List<String> mMimeTypes;
     private String mCurrentTitle;
     private String mCurrentDescription;
+    private int mRestInterval;
     private String mMediaType;
     private MediaPlayerInfo mPendingMediaInfo = null;
     private MediaPlayerInfo mCurrentMediaInfo = null;
@@ -153,6 +154,10 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
 
     public String getDescription() {
         return mCurrentDescription;
+    }
+
+    public int getRestInterval() {
+        return mRestInterval;
     }
 
     public void setBinderStatus(boolean status) {
@@ -367,6 +372,7 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
             mCurrentTitle = jobj.getString("title");
             mMediaType = jobj.optString("type");
             mCurrentDescription = jobj.optString("description");
+            mRestInterval = jobj.optInt("restPeriodAfter");
         } catch (JSONException e) {
             Log.e(TAG, "Cannot parse Metadata", e);
             mCurrentTitle = null;

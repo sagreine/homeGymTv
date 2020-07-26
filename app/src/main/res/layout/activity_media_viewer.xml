@@ -5,6 +5,13 @@
     android:orientation="horizontal"
     tools:context="com.amazon.whisperplay.fling.media.player.activity.MediaViewer">
 
+  <View 
+        android:id="@+id/centerShim"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"/>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="304dp"
@@ -13,9 +20,10 @@
 
     <SurfaceView
         android:id="@+id/surfaceViewPlayer"
-        android:layout_width="600dp"
-        android:layout_height="300dp"
-        android:layout_alignParentEnd="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/centerShim"
         android:keepScreenOn="true"
         android:visibility="gone" />
 
@@ -120,32 +128,55 @@
             android:textStyle="bold"
             android:visibility="invisible" />
 
+        <View
+            android:id="@+id/fake_background"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#D9000000"
+            android:padding="0px" />
+
     </RelativeLayout>
+<RelativeLayout
+        android:id="@+id/media_metadata"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/centerShim"        
+        android:orientation="horizontal"
+        android:visibility="visible">
 
     <TextView
         android:id="@+id/media_description"
-        android:layout_width="473dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/surfaceViewPlayer"
-        android:layout_marginStart="13dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginBottom="254dp"
+        android:layout_marginBottom="2dp"
         android:ellipsize="end"
         android:lines="2"
         android:text="here is a description of a video"
         android:textColor="@android:color/white"
-        android:textSize="15sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         android:visibility="visible" />
 
-
-    <View
-        android:id="@+id/fake_background"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="#D9000000"
-        android:padding="0px" />
+    <TextView
+        android:id="@+id/media_rest_interval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/media_description"        
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="70dp"
+        android:ellipsize="end"
+        android:lines="2"
+        android:text="default rest period"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+    </RelativeLayout>
 
     <ProgressBar
         android:id="@+id/media_loading_progress"

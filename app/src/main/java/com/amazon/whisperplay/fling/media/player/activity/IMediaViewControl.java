@@ -34,6 +34,13 @@ public interface IMediaViewControl extends CustomMediaPlayer {
     public String getDescription();
 
     /**
+     * Returns current Media rest interval, if any
+     *
+     * @return description or null
+     */
+    public int getRestInterval();
+
+    /**
      * Set the surface holder to display media on
      *
      * @param holder

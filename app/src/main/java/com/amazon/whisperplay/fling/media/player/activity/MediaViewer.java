@@ -67,8 +67,10 @@ public class MediaViewer extends Activity {
     private SeekBar mSeekBar;
     private TextView mMediaTitle;
     private TextView mMediaDescription;
+    private TextView mRestInterval;
     private TextView mTotalDuration;
     private TextView mCurrentPosition;
+
 
     // Paused identification letter
     private TextView mPausedLetter;
@@ -183,6 +185,7 @@ public class MediaViewer extends Activity {
         mSeekBar = (SeekBar)findViewById(R.id.seekBar);
         mMediaTitle = (TextView)findViewById(R.id.media_title);
         mMediaDescription = (TextView)findViewById(R.id.media_description);
+        mRestInterval = (TextView)findViewById(R.id.media_rest_interval);
         mTotalDuration = (TextView)findViewById(R.id.totalDuration);
         mCurrentPosition = (TextView)findViewById(R.id.currentPosition);
         mPausedLetter = (TextView)findViewById(R.id.paused);
@@ -335,11 +338,13 @@ public class MediaViewer extends Activity {
                                 String description = getString(R.string.empty);
                                 String media_type = getString(R.string.empty);
                                 String poster = getString(R.string.empty);
+                                int rest_interval = 0;
                                 try {
                                     MediaPlayerInfo info = mViewControl.getMediaInfo();
                                     JSONObject jsonObject = (JSONObject) new JSONTokener(info.getMetadata()).nextValue();
                                     media_title = jsonObject.getString("title");
                                     description = jsonObject.optString("description");
+                                    rest_interval = Integer.parseInt(jsonObject.optString("restPeriodAfter"));
                                     media_type = jsonObject.optString("type").split("/")[0];
                                     poster = jsonObject.optString("poster");
                                 } catch (IOException e) {
@@ -349,6 +354,7 @@ public class MediaViewer extends Activity {
                                 }
                                 mMediaTitle.setText(media_title);
                                 mMediaDescription.setText(description);
+                                mRestInterval.setText(String.valueOf(rest_interval));
                                 // Assume that metadata:type came into correctly. There is still
                                 // possibility that this type can be differ than media type on URL.
                                 if (media_type.equals("audio")) {
