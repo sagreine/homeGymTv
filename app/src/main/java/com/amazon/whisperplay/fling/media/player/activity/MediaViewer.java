@@ -517,7 +517,7 @@ public class MediaViewer extends Activity {
                     if (!mActive || state == MediaState.Error || state == MediaState.Finished) {
 
                         Log.e(TAG, "Terminating Player because of:" + (mActive ? "Paused" : state.name()));
-                        finish();
+                        //finish();
                     }
                 } catch (IOException e) {
                     Log.e(TAG, "Exception controlling media player:", e);

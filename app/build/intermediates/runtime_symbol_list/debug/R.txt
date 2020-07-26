@@ -7,9 +7,9 @@ int id media_descript654654ion 0x7f020004
 int id media_description 0x7f020005
 int id media_info_layout 0x7f020006
 int id media_loading_progress 0x7f020007
-int id media_rest_interval 0x7f020008
-int id media_title 0x7f020009
-int id meta_layout 0x7f02000a
+int id media_metadata 0x7f020008
+int id media_rest_interval 0x7f020009
+int id media_title 0x7f02000a
 int id paused 0x7f02000b
 int id pictureImageView 0x7f02000c
 int id posterImageView 0x7f02000d
