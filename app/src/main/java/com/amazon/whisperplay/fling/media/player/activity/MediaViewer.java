@@ -20,6 +20,7 @@ import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
@@ -354,7 +355,15 @@ public class MediaViewer extends Activity {
                                 }
                                 mMediaTitle.setText(media_title);
                                 mMediaDescription.setText(description);
-                                mRestInterval.setText(String.valueOf(rest_interval));
+                                new CountDownTimer((rest_interval * 1000), 1000) {
+                                    public void onTick(long millisUntilFinished) {
+                                        mRestInterval.setText("Seconds Remaining in Rest Period: " + millisUntilFinished / 1000);
+                                    }
+
+                                    public void onFinish() {
+                                        mRestInterval.setText("Rest Period over! Go lift :)");
+                                    }
+                                }.start();
                                 // Assume that metadata:type came into correctly. There is still
                                 // possibility that this type can be differ than media type on URL.
                                 if (media_type.equals("audio")) {
