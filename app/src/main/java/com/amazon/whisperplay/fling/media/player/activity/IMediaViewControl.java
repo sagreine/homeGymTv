@@ -39,6 +39,9 @@ public interface IMediaViewControl extends CustomMediaPlayer {
      * @return description or null
      */
     public int getRestInterval();
+    public int getReps();
+    public int getWeight();
+
 
     /**
      * Set the surface holder to display media on

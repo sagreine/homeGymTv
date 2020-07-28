@@ -160,6 +160,21 @@ public class CustomMediaPlayerService extends MediaPlayerHostService {
             return 0;
         }
 
+        @Override
+        public int getReps() {
+            if (mImpl != null) {
+                return mImpl.getReps();
+            }
+            return 0;
+        }
+        @Override
+        public int getWeight() {
+            if (mImpl != null) {
+                return mImpl.getWeight();
+            }
+            return 0;
+        }
+
         /**
          * {@inheritDoc}
          */

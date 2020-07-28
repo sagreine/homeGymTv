@@ -19,6 +19,7 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -69,6 +70,7 @@ public class MediaViewer extends Activity {
     private TextView mMediaTitle;
     private TextView mMediaDescription;
     private TextView mRestInterval;
+    private TextView mRepsXWeight;
     private TextView mTotalDuration;
     private TextView mCurrentPosition;
 
@@ -82,9 +84,6 @@ public class MediaViewer extends Activity {
     private boolean markAudio = false;
     private boolean markPicture = false;
 
-    // ImageView for audio poster and picture
-    private ImageView mPosterImageView;
-    private ImageView mPictureImageView;
     private AQuery mAQuery;
 
     private BroadcastReceiver mImageReceiver;
@@ -187,12 +186,11 @@ public class MediaViewer extends Activity {
         mMediaTitle = (TextView)findViewById(R.id.media_title);
         mMediaDescription = (TextView)findViewById(R.id.media_description);
         mRestInterval = (TextView)findViewById(R.id.media_rest_interval);
+        mRepsXWeight = (TextView)findViewById(R.id.media_weight_x_reps);
         mTotalDuration = (TextView)findViewById(R.id.totalDuration);
         mCurrentPosition = (TextView)findViewById(R.id.currentPosition);
         mPausedLetter = (TextView)findViewById(R.id.paused);
         mProgressBar = (ProgressBar)findViewById(R.id.media_loading_progress);
-        mPosterImageView = (ImageView)findViewById(R.id.posterImageView);
-        mPictureImageView = (ImageView)findViewById(R.id.pictureImageView);
         mAQuery = new AQuery(this);
 
         String cname = null;
@@ -237,7 +235,7 @@ public class MediaViewer extends Activity {
         mActive = false;
         resetMarkers();
         clearMediaInformationAndHide();
-        pictureViewVisibility(false);
+        //pictureViewVisibility(false);
         if (mImageReceiver != null) {
             unregisterReceiver(mImageReceiver);
         }
@@ -283,8 +281,8 @@ public class MediaViewer extends Activity {
                 clearMediaInformationAndHide();
                 mPlayerSurfaceView.setVisibility(View.GONE);
                 markPicture = true;
-                String imageUri = intent.getStringExtra("uri");
-                mAQuery.id(mPictureImageView).image(imageUri, true, true, 0, AQuery.INVISIBLE);
+                //String imageUri = intent.getStringExtra("uri");
+                //mAQuery.id(mPictureImageView).image(imageUri, true, true, 0, AQuery.INVISIBLE);
                 mViewControl.setImageComplete(true);
             }
         };
@@ -302,7 +300,6 @@ public class MediaViewer extends Activity {
                     case PreparingMedia:
                     case ReadyToPlay:
                         surfaceViewVisibility(false);
-                        pictureViewVisibility(false);
                         resetMarkers();
                         clearMediaInformationAndHide();
                         preparationVisibility(true);
@@ -328,7 +325,6 @@ public class MediaViewer extends Activity {
                         if (markPicture) {
                             preparationVisibility(false);
                             surfaceViewVisibility(false);
-                            pictureViewVisibility(true);
                             break;
                         }
                         if (mPlayerSurfaceView != null && mPlayerSurfaceView instanceof SurfaceView) {
@@ -338,41 +334,47 @@ public class MediaViewer extends Activity {
                                 String media_title = getString(R.string.empty);
                                 String description = getString(R.string.empty);
                                 String media_type = getString(R.string.empty);
-                                String poster = getString(R.string.empty);
                                 int rest_interval = 0;
+                                int reps = 0;
+                                int weight = 0;
                                 try {
                                     MediaPlayerInfo info = mViewControl.getMediaInfo();
                                     JSONObject jsonObject = (JSONObject) new JSONTokener(info.getMetadata()).nextValue();
                                     media_title = jsonObject.getString("title");
                                     description = jsonObject.optString("description");
                                     rest_interval = Integer.parseInt(jsonObject.optString("restPeriodAfter"));
+                                    reps = Integer.parseInt(jsonObject.optString("reps"));
+                                    weight = Integer.parseInt(jsonObject.optString("weight"));
                                     media_type = jsonObject.optString("type").split("/")[0];
-                                    poster = jsonObject.optString("poster");
                                 } catch (IOException e) {
                                     Log.e(TAG, "IOException", e);
                                 } catch (JSONException e) {
                                     Log.e(TAG, "JSONException", e);
                                 }
                                 mMediaTitle.setText(media_title);
+                                mRepsXWeight.setText(String.valueOf(reps) + "x" + String.valueOf(weight));
                                 mMediaDescription.setText(description);
                                 new CountDownTimer((rest_interval * 1000), 1000) {
                                     public void onTick(long millisUntilFinished) {
-                                        mRestInterval.setText("Seconds Remaining in Rest Period: " + millisUntilFinished / 1000);
+                                        mRestInterval.setText(String.valueOf(millisUntilFinished / 1000));
+                                        if(millisUntilFinished < 5000) {
+                                            // put colors in a resource file instead of doing
+                                            mRestInterval.setTextColor(Color.rgb(200,0,0));
+                                        }
                                     }
 
                                     public void onFinish() {
-                                        mRestInterval.setText("Rest Period over! Go lift :)");
+                                        mRestInterval.setTextSize(60);
+                                        mRestInterval.setTextColor(Color.rgb(200,0,0));
+                                        mRestInterval.setText("Get your ass up and lift");
                                     }
                                 }.start();
                                 // Assume that metadata:type came into correctly. There is still
                                 // possibility that this type can be differ than media type on URL.
                                 if (media_type.equals("audio")) {
                                     markAudio = true;
-                                    mPosterImageView.setVisibility(View.VISIBLE);
-                                    mAQuery.id(mPosterImageView).image(poster, true, true, 0, AQuery.INVISIBLE);
                                     animateMediaInfo(false, markAudio);
                                 } else {
-                                    mPosterImageView.setVisibility(View.GONE);
                                     animateMediaInfo(true, markAudio);
                                 }
                                 markFreshInfo = true;
@@ -430,17 +432,13 @@ public class MediaViewer extends Activity {
         mPlayerSurfaceView.setVisibility(visible? View.VISIBLE : View.GONE);
     }
 
-    private void pictureViewVisibility(boolean visible) {
-        mPictureImageView.setVisibility(visible? View.VISIBLE : View.GONE);
-    }
-
     private void preparationVisibility(boolean visible) {
         mFakeBackground.setVisibility(visible? View.VISIBLE : View.GONE);
         mProgressBar.setVisibility(visible? View.VISIBLE : View.GONE);
     }
 
     private void clearMediaInformationAndHide() {
-        mPosterImageView.setVisibility(View.GONE);
+
         mPausedLetter.setVisibility(View.GONE);
         mMediaInfoLayout.animate().cancel();
         mMediaInfoLayout.setVisibility(View.GONE);
@@ -450,15 +448,15 @@ public class MediaViewer extends Activity {
         mCurrentPosition.setVisibility(View.GONE);
         mTotalDuration.animate().cancel();
         mTotalDuration.setVisibility(View.GONE);
-        mMediaTitle.animate().cancel();
-        mMediaTitle.setVisibility(View.GONE);
+        //mMediaTitle.animate().cancel();
+        //mMediaTitle.setVisibility(View.GONE);
         //mMediaDescription.animate().cancel();
         //mMediaDescription.setVisibility(View.GONE);
         mSeekBar.setProgress(0);
         mSeekBar.setMax(0);
         mTotalDuration.setText(getString(R.string.init_time));
         mCurrentPosition.setText(getString(R.string.init_time));
-        mMediaTitle.setText(getString(R.string.empty));
+        //mMediaTitle.setText(getString(R.string.empty));
         //mMediaDescription.setText(getString(R.string.empty));
     }
 
@@ -476,9 +474,9 @@ public class MediaViewer extends Activity {
             mTotalDuration.animate().cancel();
             mTotalDuration.setAlpha(1f);
             mTotalDuration.setVisibility(View.VISIBLE);
-            mMediaTitle.animate().cancel();
-            mMediaTitle.setAlpha(1f);
-            mMediaTitle.setVisibility(View.VISIBLE);
+            //mMediaTitle.animate().cancel();
+            //mMediaTitle.setAlpha(1f);
+            //mMediaTitle.setVisibility(View.VISIBLE);
             //mMediaDescription.animate().cancel();
             //mMediaDescription.setAlpha(1f);
             //mMediaDescription.setVisibility(View.VISIBLE);
@@ -491,7 +489,7 @@ public class MediaViewer extends Activity {
             mCurrentPosition.setVisibility(View.VISIBLE);
             mTotalDuration.setAlpha(1f);
             mTotalDuration.setVisibility(View.VISIBLE);
-            mMediaTitle.setAlpha(1f);
+            //mMediaTitle.setAlpha(1f);
             mMediaTitle.setVisibility(View.VISIBLE);
             //mMediaDescription.setAlpha(1f);
             mMediaDescription.setVisibility(View.VISIBLE);
@@ -500,7 +498,7 @@ public class MediaViewer extends Activity {
                 mSeekBar.animate().alpha(0f).setDuration(5000);
                 mCurrentPosition.animate().alpha(0f).setDuration(5000);
                 mTotalDuration.animate().alpha(0f).setDuration(5000);
-                mMediaTitle.animate().alpha(0f).setDuration(5000);
+                //mMediaTitle.animate().alpha(0f).setDuration(5000);
                 //mMediaDescription.animate().alpha(0f).setDuration(5000);
             }
         }

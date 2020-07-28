@@ -64,6 +64,8 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
     private String mCurrentTitle;
     private String mCurrentDescription;
     private int mRestInterval;
+    private int mReps;
+    private int mWeight;
     private String mMediaType;
     private MediaPlayerInfo mPendingMediaInfo = null;
     private MediaPlayerInfo mCurrentMediaInfo = null;
@@ -160,6 +162,13 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
         return mRestInterval;
     }
 
+    public int getReps() {
+        return mReps;
+    }
+
+    public int getWeight() {
+        return mWeight;
+    }
     public void setBinderStatus(boolean status) {
         synchronized (mBinderLock) {
             mServiceBind = status;
@@ -373,6 +382,8 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
             mMediaType = jobj.optString("type");
             mCurrentDescription = jobj.optString("description");
             mRestInterval = jobj.optInt("restPeriodAfter");
+            mReps = jobj.optInt("reps");
+            mWeight = jobj.optInt("weight");
         } catch (JSONException e) {
             Log.e(TAG, "Cannot parse Metadata", e);
             mCurrentTitle = null;
@@ -410,18 +421,6 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
                     }
                 }
                 break;
-
-            case MEDIA_TYPE_IMAGE:
-                mImageMarker = true;
-                if (mQueue == null) {
-                    mQueue = new CommandQueue(CustomMediaPlayerImplementation.this);
-                }
-                mQueue.setImage(mediaLoc, playInBg);
-                if (autoPlay) {
-                    mQueue.playImage(mediaLoc, playInBg);
-                }
-                break;
-
             case MEDIA_TYPE_UNKNOWN:
             default:
                 throw new IllegalArgumentException("Wrong media type. received"
@@ -435,9 +434,8 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
                 return MEDIA_TYPE_VIDEO;
             } else if (mediaType.indexOf("audio/") == 0) {
                 return MEDIA_TYPE_AUDIO;
-            } else if (mediaType.indexOf("image/") == 0) {
-                return MEDIA_TYPE_IMAGE;
             }
+
         } else if (url.contains(".")) {
             String fileExtension = url.substring(url.lastIndexOf('.') +1).toLowerCase();
             if (Arrays.asList(VIDEO_EXTENSIONS).contains(fileExtension)) {
@@ -741,21 +739,7 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
             }
         }
 
-        /**
-         * Add SetImage command to queue
-         *
-         * @param uri
-         *            Image information to load from
-         */
-        public void setImage(String uri, boolean playInBg) {
-            try {
-                mCmdQueue.put(new Command(PlayerCommand.SetImage, uri, playInBg));
-            } catch (InterruptedException e) {
-                Log.w(TAG, "Put interrupted, command ignored");
-            }
-        }
-
-        /**
+         /**
          * Add SetUrl command to queue
          *
          * @param uri
@@ -769,16 +753,6 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
             }
         }
 
-        /**
-         * Add image play command to queue
-         */
-        public void playImage(String uri, boolean playInBg) {
-            try {
-                mCmdQueue.put(new Command(PlayerCommand.PlayImage, uri, playInBg));
-            } catch (InterruptedException e) {
-                Log.w(TAG, "Put interrupted, command ignored");
-            }
-        }
 
         /**
          * Add play command to queue
@@ -885,20 +859,6 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
         public void exec(Command cmd) {
             Log.d(TAG, "Executing command " + cmd.toString());
             switch (cmd.mCmd) {
-                case PlayImage:
-                    synchronized (mPlayerService.mBinderLock) {
-                        try {
-                            if (!mPlayerService.mServiceBind) {
-                                mPlayerService.mBinderLock.wait();
-                            }
-                        } catch (InterruptedException e) {
-                            Log.e(TAG, "InterruptedException", e);
-                        }
-                    }
-                    Intent playImage = new Intent("fling.custom.media.player.loadImage");
-                    playImage.putExtra("uri", cmd.mUri);
-                    mPlayerService.mContext.sendBroadcast(playImage);
-                    break;
                 case Play:
                     // Always wait until prepared
                     synchronized (mPrepLock) {
@@ -1033,39 +993,6 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
                     break;
                 case Update:
                     mPlayerService.updateStatus();
-                    break;
-                case SetImage:
-                    mPlayerService.setState(MediaState.NoSource, false);
-                    mPlayerService.setState(MediaCondition.Good, false);
-                    mPlayer.reset();
-                    // Launch the viewer for media surface as well.
-                    if (!cmd.mInBg && mPlayerService.mSurfaceHolder == null) {
-                        Intent it = new Intent(mPlayerService.mContext, MediaViewer.class);
-                        it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        it.putExtra("actualServiceClassname", mPlayerService.mContext.getClass().getName());
-                        mPlayerService.mContext.startActivity(it);
-                    }
-                    mPlayerService.stopStatusUpdating();
-                    mPlayerService.setState(MediaState.PreparingMedia);
-                    URLConnection connection = null;
-                    boolean isImage = false;
-                    // Image url validation
-                    try {
-                        connection = new URL(cmd.mUri).openConnection();
-                        String contentType = connection.getHeaderField("Content-Type");
-                        isImage = contentType.startsWith("image/");
-                    } catch (IOException e) {
-                        Log.e(TAG, "Error validating image url", e);
-                        mPlayerService.setState(MediaCondition.ErrorUnknown);
-                        break;
-                    }
-                    if (isImage) {
-                        mPlayerService.setState(MediaState.ReadyToPlay);
-                    } else {
-                        Log.e(TAG, "Given url is not an image...");
-                        mPlayerService.setState(MediaCondition.ErrorUnknown);
-                        break;
-                    }
                     break;
                 case SetUri:
                     Log.d(TAG, "Before Set Data Source, reset player...");
