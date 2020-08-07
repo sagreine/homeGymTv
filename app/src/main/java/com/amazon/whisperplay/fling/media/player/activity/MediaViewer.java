@@ -83,6 +83,7 @@ public class MediaViewer extends Activity {
     private boolean markFreshInfo = false;
     private boolean markAudio = false;
     private boolean markPicture = false;
+    private boolean isCountdownOver = false;
 
     private AQuery mAQuery;
 
@@ -95,7 +96,7 @@ public class MediaViewer extends Activity {
             mHandler.removeCallbacksAndMessages(null);
             MediaState state = status.getState();
             if (state == MediaState.Error || state == MediaState.Finished) {
-                mHandler.postDelayed(new FinishTask(), 1000L);
+                    mHandler.postDelayed(new FinishTask(), 1000L);
             } else {
                 setViewForState(state, position);
             }
@@ -365,8 +366,16 @@ public class MediaViewer extends Activity {
 
                                     public void onFinish() {
                                         mRestInterval.setTextSize(60);
-                                        mRestInterval.setTextColor(Color.rgb(200,0,0));
-                                        mRestInterval.setText("Get your ass up and lift");
+                                        mRestInterval.setTextColor(Color.rgb(255,255,255));
+                                        mRestInterval.setText("Go lift!");
+//need to handle if the timer ends but the media is still playing...
+    //if (try {mViewControl.getStatus().getState() == MediaState.Finished) {
+    //}
+//}
+
+                                        mViewControl.setState(MediaState.Finished, true, true);
+                                        isCountdownOver = true;
+                                        finish();
                                     }
                                 }.start();
                                 // Assume that metadata:type came into correctly. There is still
@@ -524,7 +533,7 @@ public class MediaViewer extends Activity {
                     if (!mActive || state == MediaState.Error || state == MediaState.Finished) {
 
                         Log.e(TAG, "Terminating Player because of:" + (mActive ? "Paused" : state.name()));
-                        //finish();
+//                        finish();
                     }
                 } catch (IOException e) {
                     Log.e(TAG, "Exception controlling media player:", e);

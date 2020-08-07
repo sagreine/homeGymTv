@@ -13,6 +13,7 @@ package com.amazon.whisperplay.fling.media.player.activity;
 import android.view.SurfaceHolder;
 
 import com.amazon.whisperplay.fling.media.service.CustomMediaPlayer;
+import com.amazon.whisperplay.fling.media.service.MediaPlayerStatus;
 
 /**
  * Interface from view to service
@@ -58,6 +59,8 @@ public interface IMediaViewControl extends CustomMediaPlayer {
      *            true if if completed or false
      */
     public void setImageComplete(boolean result);
+
+    public void setState(MediaPlayerStatus.MediaState media, boolean sendEvent, boolean forceSend);
 
     /**
      * Send status of binder connection

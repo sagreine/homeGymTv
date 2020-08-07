@@ -5,7 +5,7 @@
     <string name="unknown_movie">Unknown</string>
     <string name="title_text">Media content will start playing soon</string>
     <string name="title_activity_launcher_splash">LauncherSplashActivity</string>
-    <string name="screen_content">This application shows you how to build\na custom player using Amazon Fling SDK.\n\nFor more information please checkout\nAmazon Fling Developer Portal at\nhttp://developer.amazon.com/fling </string>
+    <string name="screen_content">Fling content from the Home Gym TV app on your phone</string>
     <string name="init_time">"00:00:00"</string>
     <string name="fake_pause">| |</string>
     <string name="empty"> </string>

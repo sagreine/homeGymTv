@@ -185,7 +185,7 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
                     mPendingMediaInfo.getSource(),
                     mPendingMediaInfo.getMetadata(),
                     Long.toString(0));
-            setState(MediaState.Playing, false);
+            setState(MediaState.Playing, false, false);
             sendStatus();
         } else {
             mImageMarker = false;
@@ -522,7 +522,7 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
      *            new state
      */
     protected synchronized void setState(MediaState state) {
-        setState(state, true);
+        setState(state, true, false);
     }
 
     /**
@@ -531,8 +531,9 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
      * @param state
      *            new state
      */
-    protected synchronized void setState(MediaState state, boolean sendEvent) {
-        if (state != mState) {
+
+    protected synchronized void setState(MediaState state, boolean sendEvent, boolean forceSend) {
+        if (state != mState || forceSend) {
             if (mState == MediaState.Error) {
                 if (mError != MediaCondition.WarningContent
                         && mError != MediaCondition.WarningBandwidth) {
@@ -600,7 +601,7 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
         mCurrentMediaInfo = null;
         mCurrentDescription = null;
         boolean isReseting = (curState == MediaState.NoSource || curState == MediaState.PreparingMedia);
-        setState(MediaState.Finished, !isReseting);
+        setState(MediaState.Finished, !isReseting, false);
         if (mPlayer != null && mQueue != null && !isReseting) {
             mQueue.stop();
         }
@@ -997,7 +998,7 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
                 case SetUri:
                     Log.d(TAG, "Before Set Data Source, reset player...");
 
-                    mPlayerService.setState(MediaState.NoSource, false);
+                    mPlayerService.setState(MediaState.NoSource, false, false);
                     mPlayerService.setState(MediaCondition.Good, false);
                     mPlayer.reset();
                     // First, launch the viewer for media surface

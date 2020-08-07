@@ -133,6 +133,13 @@ public class CustomMediaPlayerService extends MediaPlayerHostService {
             return null;
         }
 
+        @Override
+        public void setState(MediaPlayerStatus.MediaState media, boolean SendEvent, boolean forceSend) {
+            if (mImpl != null) {
+                 mImpl.setState(media, SendEvent, forceSend);
+            }
+        }
+
         /**
          * {@inheritDoc}
          */
