@@ -19,8 +19,7 @@
         android:layout_alignParentBottom="true"
         android:layout_below="@id/centerShim"
         android:background="#AA000000"
-        android:orientation="horizontal"
-        
+        android:orientation="horizontal"        
         android:visibility="visible">
 
     <SurfaceView
@@ -97,13 +96,11 @@
 
 <RelativeLayout
         android:id="@+id/media_metadata"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="match_parent"
         android:layout_above="@id/centerShim"        
         android:orientation="horizontal"
         android:visibility="visible">
-
- 
 
         <TextView
             android:id="@+id/media_title"
@@ -118,21 +115,7 @@
             android:text="@string/empty"
             android:textColor="@android:color/white"
             android:textSize="45sp"
-            android:textStyle="bold" />
-
-     <TextView
-        android:id="@+id/media_rest_interval"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/media_title"        
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="4dp"
-        android:text="@string/empty"
-        android:textColor="@android:color/white"
-        android:textSize="160sp"
-        android:textStyle="bold"
-        android:visibility="visible" />            
+            android:textStyle="bold" />           
 
     <TextView
         android:id="@+id/media_weight_x_reps"
@@ -168,12 +151,85 @@
         android:textStyle="bold"
         android:visibility="visible" />
 
-
-
-
-
-
     </RelativeLayout>
+
+         <TextView
+        android:id="@+id/media_rest_interval"        
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/centerShim"                  
+        android:layout_marginStart="3dp"        
+        android:layout_marginEnd="4dp"
+        android:text="@string/empty"
+        android:textColor="@android:color/white"
+        android:textSize="180sp"
+        android:textStyle="bold"
+        android:visibility="visible" /> 
+
+<RelativeLayout
+        android:id="@+id/next_lift_metadata"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"        
+        android:layout_above="@id/centerShim"        
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp"        
+        android:layout_alignParentEnd="true"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/next_lift_title"
+            android:layout_width="278dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="13dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/empty"
+            android:textColor="@android:color/white"
+            android:textSize="45sp"
+            android:textStyle="bold" />     
+
+    <TextView
+        android:id="@+id/next_lift_weight_x_reps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/next_lift_title"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="70dp"
+        android:ellipsize="end"
+        android:lines="2"
+        android:text="@string/empty"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/next_lift_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/next_lift_weight_x_reps"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="2dp"
+        android:ellipsize="end"
+        android:lines="2"
+        android:text="@string/empty"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+    </RelativeLayout>    
 
     <ProgressBar
         android:id="@+id/media_loading_progress"

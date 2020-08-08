@@ -71,6 +71,9 @@ public class MediaViewer extends Activity {
     private TextView mMediaDescription;
     private TextView mRestInterval;
     private TextView mRepsXWeight;
+    private TextView mNLMediaTitle;
+    private TextView mNLMediaDescription;
+    private TextView mNLRepsXWeight;
     private TextView mTotalDuration;
     private TextView mCurrentPosition;
 
@@ -188,6 +191,9 @@ public class MediaViewer extends Activity {
         mMediaDescription = (TextView)findViewById(R.id.media_description);
         mRestInterval = (TextView)findViewById(R.id.media_rest_interval);
         mRepsXWeight = (TextView)findViewById(R.id.media_weight_x_reps);
+        mNLMediaTitle = (TextView)findViewById(R.id.next_lift_title);
+        mNLMediaDescription = (TextView)findViewById(R.id.next_lift_description);
+        mNLRepsXWeight = (TextView)findViewById(R.id.next_lift_weight_x_reps);
         mTotalDuration = (TextView)findViewById(R.id.totalDuration);
         mCurrentPosition = (TextView)findViewById(R.id.currentPosition);
         mPausedLetter = (TextView)findViewById(R.id.paused);
@@ -338,15 +344,27 @@ public class MediaViewer extends Activity {
                                 int rest_interval = 0;
                                 int reps = 0;
                                 int weight = 0;
+                                String next_lift_title = getString(R.string.empty);
+                                String next_lift_description = getString(R.string.empty);
+                                int next_lift_reps = 0;
+                                int next_lift_weight = 0;
                                 try {
+                                    // current lift, with media
                                     MediaPlayerInfo info = mViewControl.getMediaInfo();
-                                    JSONObject jsonObject = (JSONObject) new JSONTokener(info.getMetadata()).nextValue();
+                                    JSONTokener js = new JSONTokener(info.getMetadata());
+                                    JSONObject jsonObject = (JSONObject) js.nextValue();
                                     media_title = jsonObject.getString("title");
                                     description = jsonObject.optString("description");
                                     rest_interval = Integer.parseInt(jsonObject.optString("restPeriodAfter"));
                                     reps = Integer.parseInt(jsonObject.optString("reps"));
                                     weight = Integer.parseInt(jsonObject.optString("weight"));
                                     media_type = jsonObject.optString("type").split("/")[0];
+                                    // next lift, for display
+                                    jsonObject = (JSONObject) js.nextValue();
+                                    next_lift_title = jsonObject.getString("title");
+                                    next_lift_description = jsonObject.optString("description");
+                                    next_lift_reps = Integer.parseInt(jsonObject.optString("reps"));
+                                    next_lift_weight = Integer.parseInt(jsonObject.optString("weight"));
                                 } catch (IOException e) {
                                     Log.e(TAG, "IOException", e);
                                 } catch (JSONException e) {
@@ -355,6 +373,9 @@ public class MediaViewer extends Activity {
                                 mMediaTitle.setText(media_title);
                                 mRepsXWeight.setText(String.valueOf(reps) + "x" + String.valueOf(weight));
                                 mMediaDescription.setText(description);
+                                mNLMediaTitle.setText(next_lift_title);
+                                mNLRepsXWeight.setText(String.valueOf(next_lift_reps) + "x" + String.valueOf(next_lift_weight));
+                                mNLMediaDescription.setText(next_lift_description);
                                 new CountDownTimer((rest_interval * 1000), 1000) {
                                     public void onTick(long millisUntilFinished) {
                                         mRestInterval.setText(String.valueOf(millisUntilFinished / 1000));
@@ -375,7 +396,7 @@ public class MediaViewer extends Activity {
 
                                         mViewControl.setState(MediaState.Finished, true, true);
                                         isCountdownOver = true;
-                                        finish();
+                                        //finish();
                                     }
                                 }.start();
                                 // Assume that metadata:type came into correctly. There is still
