@@ -102,11 +102,27 @@
         android:orientation="horizontal"
         android:visibility="visible">
 
+    <TextView
+        android:id="@+id/meta_this_lift"
+        android:layout_width="278dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="13dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="This Lift"
+        android:textColor="#051CAC"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
         <TextView
             android:id="@+id/media_title"
             android:layout_width="278dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_below="@+id/meta_this_lift"
             android:layout_marginStart="18dp"
             android:layout_marginTop="18dp"
             android:layout_marginEnd="13dp"
@@ -164,7 +180,7 @@
         android:layout_marginEnd="4dp"
         android:text="@string/empty"
         android:textColor="@android:color/white"
-        android:textSize="180sp"
+        android:textSize="200sp"
         android:textStyle="bold"
         android:visibility="visible" /> 
 
@@ -178,11 +194,27 @@
         android:layout_alignParentEnd="true"
         android:visibility="visible">
 
+    <TextView
+        android:id="@+id/meta_next_lift"
+        android:layout_width="278dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="13dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Next Lift"
+        android:textColor="#416104"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
         <TextView
             android:id="@+id/next_lift_title"
             android:layout_width="278dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_below="@+id/meta_next_lift"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="18dp"
             android:layout_marginTop="18dp"
