@@ -10,6 +10,7 @@
 
 package com.amazon.whisperplay.fling.media.player.activity;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -20,6 +21,7 @@ import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -49,6 +51,8 @@ import org.json.JSONTokener;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
 
 public class MediaViewer extends Activity {
     private static final String TAG = "MediaViewer";
@@ -74,6 +78,9 @@ public class MediaViewer extends Activity {
     private TextView mNLMediaTitle;
     private TextView mNLMediaDescription;
     private TextView mNLRepsXWeight;
+    private TextView mAssistancePull;
+    private TextView mAssistancePush;
+    private TextView mAssistanceCore;
     private TextView mTotalDuration;
     private TextView mCurrentPosition;
 
@@ -194,6 +201,11 @@ public class MediaViewer extends Activity {
         mNLMediaTitle = (TextView)findViewById(R.id.next_lift_title);
         mNLMediaDescription = (TextView)findViewById(R.id.next_lift_description);
         mNLRepsXWeight = (TextView)findViewById(R.id.next_lift_weight_x_reps);
+        mAssistancePull = (TextView)findViewById(R.id.assistance_pull);
+        mAssistancePush = (TextView)findViewById(R.id.assistance_push);
+        mAssistanceCore = (TextView)findViewById(R.id.assistance_core);
+
+
         mTotalDuration = (TextView)findViewById(R.id.totalDuration);
         mCurrentPosition = (TextView)findViewById(R.id.currentPosition);
         mPausedLetter = (TextView)findViewById(R.id.paused);
@@ -299,6 +311,7 @@ public class MediaViewer extends Activity {
 
     public void setViewForState(final MediaState state, final long position) {
         this.runOnUiThread(new Runnable() {
+            @TargetApi(Build.VERSION_CODES.O)
             public void run() {
                 if (mViewControl == null) {
                     return;
@@ -348,6 +361,13 @@ public class MediaViewer extends Activity {
                                 String next_lift_description = getString(R.string.empty);
                                 int next_lift_reps = 0;
                                 int next_lift_weight = 0;
+
+                                int assistance_reps_pull = 0;
+                                int assistance_reps_push = 0;
+                                int assistance_reps_core = 0;
+                                String assistance_lifts_pull = getString(R.string.empty);
+                                String assistance_lifts_push = getString(R.string.empty);
+                                String assistance_lifts_core = getString(R.string.empty);
                                 try {
                                     // current lift, with media
                                     MediaPlayerInfo info = mViewControl.getMediaInfo();
@@ -365,6 +385,17 @@ public class MediaViewer extends Activity {
                                     next_lift_description = jsonObject.optString("description");
                                     next_lift_reps = Integer.parseInt(jsonObject.optString("reps"));
                                     next_lift_weight = Integer.parseInt(jsonObject.optString("weight"));
+                                    // assistance lifts...for now
+                                    jsonObject = (JSONObject) js.nextValue();
+                                    assistance_reps_pull = Integer.parseInt(jsonObject.optString("assistancePullReps"));
+                                    assistance_reps_push = Integer.parseInt(jsonObject.optString("assistancePushReps"));
+                                    assistance_reps_core = Integer.parseInt(jsonObject.optString("assistanceCoreReps"));
+                                    // actually do this correctly later
+                                    assistance_lifts_pull = jsonObject.optString("assistancePull").replaceAll("[^a-zA-Z ,]","");
+                                    assistance_lifts_push = jsonObject.optString("assistancePush").replaceAll("[^a-zA-Z ,]","");
+                                    assistance_lifts_core = jsonObject.optString("assistanceCore").replaceAll("[^a-zA-Z ,]","");
+                                    //List<String> list = Arrays.asList(jsonObject.optString("assistancePull"));
+                                    //String joined = String.join(", ", list)
                                 } catch (IOException e) {
                                     Log.e(TAG, "IOException", e);
                                 } catch (JSONException e) {
@@ -376,6 +407,9 @@ public class MediaViewer extends Activity {
                                 mNLMediaTitle.setText(next_lift_title);
                                 mNLRepsXWeight.setText(String.valueOf(next_lift_reps) + "x" + String.valueOf(next_lift_weight));
                                 mNLMediaDescription.setText(next_lift_description);
+                                mAssistanceCore.setText(String.valueOf(assistance_reps_core) + " reps of: " + assistance_lifts_core);
+                                mAssistancePull.setText(String.valueOf(assistance_reps_pull) + " reps of: " + assistance_lifts_pull);
+                                mAssistancePush.setText(String.valueOf(assistance_reps_push) + " reps of: " + assistance_lifts_push);
                                 new CountDownTimer((rest_interval * 1000), 1000) {
                                     public void onTick(long millisUntilFinished) {
                                         mRestInterval.setText(String.valueOf(millisUntilFinished / 1000));

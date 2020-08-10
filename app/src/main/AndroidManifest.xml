@@ -14,7 +14,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+>
 
         <uses-library android:name="com.amazon.whisperplay.contracts" android:required="true" />
 
@@ -26,13 +27,17 @@
             android:label="@string/app_name"
             android:name="com.amazon.whisperplay.fling.media.player.activity.MediaViewer"
             android:launchMode="singleInstance"
+            android:icon="@drawable/ic_launcher"
+            android:logo="@drawable/pos_icon"
             android:finishOnTaskLaunch="true" >
         </activity>
 
         <activity
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:name=".LauncherSplashActivity"
-            android:label="@string/title_activity_launcher_splash" >
+            android:label="@string/title_activity_launcher_splash"
+            android:icon="@drawable/pos_icon"
+            android:logo="@drawable/pos_icon">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

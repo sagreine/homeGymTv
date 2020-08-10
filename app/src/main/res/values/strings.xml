@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">AmazonFling Player</string>
+    <string name="app_name">Home Gym TV</string>
     <string name="unknown_movie">Unknown</string>
     <string name="title_text">Media content will start playing soon</string>
     <string name="title_activity_launcher_splash">LauncherSplashActivity</string>
@@ -9,6 +9,7 @@
     <string name="init_time">"00:00:00"</string>
     <string name="fake_pause">| |</string>
     <string name="empty"> </string>
+    <string name="logo_of_company">logo of company</string>
 
 
 </resources>
