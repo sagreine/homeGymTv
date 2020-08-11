@@ -8,37 +8,18 @@ import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
+import android.widget.Chronometer;
 import android.widget.TextView;
 
 import com.amazon.whisperplay.fling.media.service.MediaPlayerStatus;
 
-abstract class CountUpTimer extends CountDownTimer {
-    private static final long INTERVAL_MS = 1000;
-    private final long duration;
-
-    protected CountUpTimer(long durationMs) {
-        super(durationMs, INTERVAL_MS);
-        this.duration = durationMs;
-    }
-
-    @Override
-    public void onTick(long msUntilFinished) {
-        int second = (int) ((duration - msUntilFinished) / 1000);
-        onTick(second);
-    }
-
-    @Override
-    public void onFinish() {
-        onTick(duration / 1000);
-    }
-}
 public class LauncherSplashActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher_splash);
-        final TextView mCountUpTimer = (TextView)findViewById(R.id.count_up_timer);
+        final TextView mCountUpTimer = (TextView) findViewById(R.id.count_up_timer);
 
         if (getActionBar() != null) {
             getActionBar().hide();
@@ -50,15 +31,11 @@ public class LauncherSplashActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
                         | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
                         | WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        new  CountUpTimer( 15 * 1000) {
-            public void onTick(long millisUntilFinished) {
-                mCountUpTimer.setText(String.valueOf(millisUntilFinished / 1000));
-            }
-            @Override
-            public void onFinish() {
-            }
-        }.start();
+        Chronometer simpleChronometer = (Chronometer) findViewById(R.id.count_up_timer); // initiate a chronometer
+        simpleChronometer.start();
+
     }
+
 
     @Override
     protected void onPause() {

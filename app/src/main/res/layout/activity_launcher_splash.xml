@@ -17,7 +17,7 @@
     android:textSize="30sp"
     android:gravity="center"
     android:text="@string/screen_content" 
-    >
+    />
 
     <ImageView
         android:id="@+id/imageView"
@@ -26,14 +26,13 @@
         android:contentDescription="@string/logo_of_company"
         android:src="@drawable/company_logo"
         android:visibility="visible"
-        tools:visibility="visible" />
+         />
 
-    <TextView
+    <Chronometer
         android:id="@+id/count_up_timer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        android:="true"
-        android:textSize="18sp"
+        android:layout_height="wrap_content"         
+        android:textSize="36sp"
         android:textStyle="bold"
         android:visibility="visible"
         android:textColor="@android:color/white"
