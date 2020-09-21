@@ -387,13 +387,13 @@ public class MediaViewer extends Activity {
                                     next_lift_weight = Integer.parseInt(jsonObject.optString("weight"));
                                     // assistance lifts...for now
                                     jsonObject = (JSONObject) js.nextValue();
-                                    assistance_reps_pull = Integer.parseInt(jsonObject.optString("assistancePullReps"));
-                                    assistance_reps_push = Integer.parseInt(jsonObject.optString("assistancePushReps"));
-                                    assistance_reps_core = Integer.parseInt(jsonObject.optString("assistanceCoreReps"));
+                                    //assistance_reps_pull = Integer.parseInt(jsonObject.optString("assistancePullReps"));
+                                    //assistance_reps_push = Integer.parseInt(jsonObject.optString("assistancePushReps"));
+                                    //assistance_reps_core = Integer.parseInt(jsonObject.optString("assistanceCoreReps"));
                                     // actually do this correctly later
-                                    assistance_lifts_pull = jsonObject.optString("assistancePull").replaceAll("[^a-zA-Z ,]","");
-                                    assistance_lifts_push = jsonObject.optString("assistancePush").replaceAll("[^a-zA-Z ,]","");
-                                    assistance_lifts_core = jsonObject.optString("assistanceCore").replaceAll("[^a-zA-Z ,]","");
+                                    //assistance_lifts_pull = jsonObject.optString("assistancePull").replaceAll("[^a-zA-Z ,]","");
+                                    //assistance_lifts_push = jsonObject.optString("assistancePush").replaceAll("[^a-zA-Z ,]","");
+                                    //assistance_lifts_core = jsonObject.optString("assistanceCore").replaceAll("[^a-zA-Z ,]","");
                                     //List<String> list = Arrays.asList(jsonObject.optString("assistancePull"));
                                     //String joined = String.join(", ", list)
                                 } catch (IOException e) {
@@ -407,9 +407,9 @@ public class MediaViewer extends Activity {
                                 mNLMediaTitle.setText(next_lift_title);
                                 mNLRepsXWeight.setText(String.valueOf(next_lift_reps) + "x" + String.valueOf(next_lift_weight));
                                 mNLMediaDescription.setText(next_lift_description);
-                                mAssistanceCore.setText(String.valueOf(assistance_reps_core) + " reps of: " + assistance_lifts_core);
-                                mAssistancePull.setText(String.valueOf(assistance_reps_pull) + " reps of: " + assistance_lifts_pull);
-                                mAssistancePush.setText(String.valueOf(assistance_reps_push) + " reps of: " + assistance_lifts_push);
+                                //mAssistanceCore.setText(String.valueOf(assistance_reps_core) + " reps of: " + assistance_lifts_core);
+                                //mAssistancePull.setText(String.valueOf(assistance_reps_pull) + " reps of: " + assistance_lifts_pull);
+                                //mAssistancePush.setText(String.valueOf(assistance_reps_push) + " reps of: " + assistance_lifts_push);
                                 new CountDownTimer((rest_interval * 1000), 1000) {
                                     public void onTick(long millisUntilFinished) {
                                         mRestInterval.setText(String.valueOf(millisUntilFinished / 1000));
