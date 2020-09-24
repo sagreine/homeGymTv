@@ -390,7 +390,7 @@ public class MediaViewer extends Activity {
                                     next_lift_weight = Integer.parseInt(jsonObject.optString("weight"));
 
                                     // assistance lifts...for now
-                                    jsonObject = (JSONObject) js.nextValue();
+                                    //jsonObject = (JSONObject) js.nextValue();
                                     //assistance_reps_pull = Integer.parseInt(jsonObject.optString("assistancePullReps"));
                                     //assistance_reps_push = Integer.parseInt(jsonObject.optString("assistancePushReps"));
                                     //assistance_reps_core = Integer.parseInt(jsonObject.optString("assistanceCoreReps"));
@@ -415,6 +415,9 @@ public class MediaViewer extends Activity {
                                 //mAssistancePull.setText(String.valueOf(assistance_reps_pull) + " reps of: " + assistance_lifts_pull);
                                 //mAssistancePush.setText(String.valueOf(assistance_reps_push) + " reps of: " + assistance_lifts_push);
                                  timer = null;
+
+                                mRestInterval.setTextSize(180);
+
                                  timer = new CountDownTimer((rest_interval * 1000), 1000) {
                                     public void onTick(long millisUntilFinished) {
                                         mRestInterval.setText(String.valueOf(millisUntilFinished / 1000));
