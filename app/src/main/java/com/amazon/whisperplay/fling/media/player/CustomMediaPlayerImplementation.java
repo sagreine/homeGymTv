@@ -394,6 +394,7 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
         mPendingMediaInfo = new MediaPlayerInfo(mediaLoc, metadataJson, null);
         if (mPlayer == null) {
             mPlayer = new MediaPlayer();
+            mPlayer.setLooping(true);
             if (mSurfaceHolder != null) {
                 if (mSurfaceHolder.getSurface().isValid()) {
                     mPlayer.setSurface(mSurfaceHolder.getSurface());
@@ -921,6 +922,7 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
                         Log.d(TAG, "Displaying image stopped...");
                         break;
                     }
+                    /*
                     // Always wait until prepared
                     synchronized (mPrepLock) {
                         try {
@@ -942,7 +944,36 @@ public class CustomMediaPlayerImplementation implements CustomMediaPlayer {
                         }
                     } else {
                         Log.w(TAG, "Cannot Stop, bad state:" + mPlayerService.getState().name());
+                    }*/
+                    ////////////////////
+                    synchronized (mPrepLock) {
+                        try {
+                            Log.d(TAG, "Before Play, Waiting for player...");
+                            if (!mPrepped) {
+                                mPrepLock.wait();
+                            }
+                        } catch (InterruptedException e) {
+                        }
                     }
+                    Log.d(TAG, "Before Play, are we prepped? " + (mPrepped ? "Yes" : "No"));
+                    if (mPrepped) {
+                        Log.d(TAG, "Player Prepped, state = " + mPlayerService.getState());
+                        MediaState originalState = mPlayerService.getState();
+                        //if (originalState == MediaState.Paused || originalState == MediaState.ReadyToPlay) {
+                            try {
+                                mPlayer.start();
+                                mPlayerService.setState(MediaState.Playing);
+                                Log.d(TAG, "Player Started...");
+                            } catch (Exception e) {
+                                Log.e(TAG, "Play Failed:", e);
+                            }
+                        //} else {
+                          //  Log.w(TAG, "Cannot Play, bad state:" + mPlayerService.getState().name());
+                        //}
+                    }
+
+
+                    /////////////////////
                     break;
                 case Seek:
                     // Always wait until prepared

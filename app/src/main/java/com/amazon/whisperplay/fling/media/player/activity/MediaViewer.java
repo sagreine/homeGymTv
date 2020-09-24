@@ -94,6 +94,7 @@ public class MediaViewer extends Activity {
     private boolean markAudio = false;
     private boolean markPicture = false;
     private boolean isCountdownOver = false;
+    CountDownTimer timer;
 
     private AQuery mAQuery;
 
@@ -262,6 +263,7 @@ public class MediaViewer extends Activity {
             try {
                 MediaPlayerStatus status = mViewControl.getStatus();
                 if (status.getState() == MediaState.Playing || status.getState() == MediaState.Paused) {
+
                     mViewControl.stop();
                 }
                 mViewControl.setSurfaceHolder(null);
@@ -368,6 +370,7 @@ public class MediaViewer extends Activity {
                                 String assistance_lifts_pull = getString(R.string.empty);
                                 String assistance_lifts_push = getString(R.string.empty);
                                 String assistance_lifts_core = getString(R.string.empty);
+
                                 try {
                                     // current lift, with media
                                     MediaPlayerInfo info = mViewControl.getMediaInfo();
@@ -385,6 +388,7 @@ public class MediaViewer extends Activity {
                                     next_lift_description = jsonObject.optString("description");
                                     next_lift_reps = Integer.parseInt(jsonObject.optString("reps"));
                                     next_lift_weight = Integer.parseInt(jsonObject.optString("weight"));
+
                                     // assistance lifts...for now
                                     jsonObject = (JSONObject) js.nextValue();
                                     //assistance_reps_pull = Integer.parseInt(jsonObject.optString("assistancePullReps"));
@@ -410,25 +414,27 @@ public class MediaViewer extends Activity {
                                 //mAssistanceCore.setText(String.valueOf(assistance_reps_core) + " reps of: " + assistance_lifts_core);
                                 //mAssistancePull.setText(String.valueOf(assistance_reps_pull) + " reps of: " + assistance_lifts_pull);
                                 //mAssistancePush.setText(String.valueOf(assistance_reps_push) + " reps of: " + assistance_lifts_push);
-                                new CountDownTimer((rest_interval * 1000), 1000) {
+                                 timer = null;
+                                 timer = new CountDownTimer((rest_interval * 1000), 1000) {
                                     public void onTick(long millisUntilFinished) {
                                         mRestInterval.setText(String.valueOf(millisUntilFinished / 1000));
-                                        if(millisUntilFinished < 5000) {
+                                        if (millisUntilFinished < 5000) {
                                             // put colors in a resource file instead of doing
-                                            mRestInterval.setTextColor(Color.rgb(200,0,0));
+                                            mRestInterval.setTextColor(Color.rgb(200, 0, 0));
                                         }
                                     }
 
                                     public void onFinish() {
+                                        //isCountdownOver = true;
                                         mRestInterval.setTextSize(60);
-                                        mRestInterval.setTextColor(Color.rgb(255,255,255));
+                                        mRestInterval.setTextColor(Color.rgb(255, 255, 255));
                                         mRestInterval.setText("Go lift!");
 //need to handle if the timer ends but the media is still playing...
-    //if (try {mViewControl.getStatus().getState() == MediaState.Finished) {
-    //}
+                                        //if (try {mViewControl.getStatus().getState() == MediaState.Finished) {
+                                        //}
 //}
-
-                                        mViewControl.setState(MediaState.Finished, true, true);
+                                        // this is necessary to have a real app, tells it we're done playing this....
+                                        //mViewControl.setState(MediaState.Finished, true, true);
                                         isCountdownOver = true;
                                         //finish();
                                     }
@@ -585,10 +591,12 @@ public class MediaViewer extends Activity {
             if (mViewControl != null) {
                 try {
                     MediaState state = mViewControl.getStatus().getState();
-                    if (!mActive || state == MediaState.Error || state == MediaState.Finished) {
+                    if(isCountdownOver) {
+                        if (!mActive || state == MediaState.Error || state == MediaState.Finished) {
 
-                        Log.e(TAG, "Terminating Player because of:" + (mActive ? "Paused" : state.name()));
+                            Log.e(TAG, "Terminating Player because of:" + (mActive ? "Paused" : state.name()));
 //                        finish();
+                        }
                     }
                 } catch (IOException e) {
                     Log.e(TAG, "Exception controlling media player:", e);
