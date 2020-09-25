@@ -370,6 +370,7 @@ public class MediaViewer extends Activity {
                                 String assistance_lifts_pull = getString(R.string.empty);
                                 String assistance_lifts_push = getString(R.string.empty);
                                 String assistance_lifts_core = getString(R.string.empty);
+                                boolean startTimerCast = false;
 
                                 try {
                                     // current lift, with media
@@ -388,9 +389,12 @@ public class MediaViewer extends Activity {
                                     next_lift_description = jsonObject.optString("description");
                                     next_lift_reps = Integer.parseInt(jsonObject.optString("reps"));
                                     next_lift_weight = Integer.parseInt(jsonObject.optString("weight"));
+                                    // we conditionally set a timer to run, so find out if we're setting a timer to run..
+                                    startTimerCast = (boolean) js.nextValue();
+
 
                                     // assistance lifts...for now
-                                    //jsonObject = (JSONObject) js.nextValue();
+
                                     //assistance_reps_pull = Integer.parseInt(jsonObject.optString("assistancePullReps"));
                                     //assistance_reps_push = Integer.parseInt(jsonObject.optString("assistancePushReps"));
                                     //assistance_reps_core = Integer.parseInt(jsonObject.optString("assistanceCoreReps"));
@@ -417,7 +421,7 @@ public class MediaViewer extends Activity {
                                  timer = null;
 
                                 mRestInterval.setTextSize(180);
-
+                                if(startTimerCast) {
                                  timer = new CountDownTimer((rest_interval * 1000), 1000) {
                                     public void onTick(long millisUntilFinished) {
                                         mRestInterval.setText(String.valueOf(millisUntilFinished / 1000));
@@ -442,6 +446,7 @@ public class MediaViewer extends Activity {
                                         //finish();
                                     }
                                 }.start();
+                                }
                                 // Assume that metadata:type came into correctly. There is still
                                 // possibility that this type can be differ than media type on URL.
                                 if (media_type.equals("audio")) {
