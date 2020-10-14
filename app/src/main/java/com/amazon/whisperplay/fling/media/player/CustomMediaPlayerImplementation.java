@@ -20,6 +20,7 @@ import android.media.MediaPlayer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceHolder;
+import android.widget.Chronometer;
 
 import com.amazon.whisperplay.fling.media.player.activity.MediaViewer;
 import com.amazon.whisperplay.fling.media.service.MediaPlayerInfo;

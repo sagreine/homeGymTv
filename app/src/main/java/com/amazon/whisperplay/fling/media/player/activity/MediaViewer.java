@@ -31,6 +31,7 @@ import android.view.KeyEvent;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -83,6 +84,9 @@ public class MediaViewer extends Activity {
     private TextView mAssistanceCore;
     private TextView mTotalDuration;
     private TextView mCurrentPosition;
+    private Chronometer simpleChronometer;
+    private Boolean firstExercise;
+
 
 
     // Paused identification letter
@@ -183,6 +187,12 @@ public class MediaViewer extends Activity {
         return false;
     }
 
+    //// UNTESTED UNTESTED UNTESTED
+    @Override
+    public void onBackPressed() {
+        android.os.Process.killProcess(android.os.Process.myPid());
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -205,6 +215,8 @@ public class MediaViewer extends Activity {
         mAssistancePull = (TextView)findViewById(R.id.assistance_pull);
         mAssistancePush = (TextView)findViewById(R.id.assistance_push);
         mAssistanceCore = (TextView)findViewById(R.id.assistance_core);
+        simpleChronometer = (Chronometer) findViewById(R.id.count_up_timer); // initiate a chronometer
+
 
 
         mTotalDuration = (TextView)findViewById(R.id.totalDuration);
@@ -371,6 +383,7 @@ public class MediaViewer extends Activity {
                                 String assistance_lifts_push = getString(R.string.empty);
                                 String assistance_lifts_core = getString(R.string.empty);
                                 boolean startTimerCast = false;
+                                boolean firstExercise = true;
 
                                 try {
                                     // current lift, with media
@@ -390,7 +403,10 @@ public class MediaViewer extends Activity {
                                     next_lift_reps = Integer.parseInt(jsonObject.optString("reps"));
                                     next_lift_weight = Integer.parseInt(jsonObject.optString("weight"));
                                     // we conditionally set a timer to run, so find out if we're setting a timer to run..
-                                    startTimerCast = (boolean) js.nextValue();
+                                    //startTimerCast = (boolean) js.nextValue();
+                                    startTimerCast = ((JSONObject) js.nextValue()).optBoolean("startTimerCast");
+                                    //firstExercise = (boolean) js.nextValue();
+                                    firstExercise = ((JSONObject) js.nextValue()).optBoolean("firstExercise");
 
 
                                     // assistance lifts...for now
@@ -446,6 +462,10 @@ public class MediaViewer extends Activity {
                                         //finish();
                                     }
                                 }.start();
+                                }
+                                // we'll have a persistent count up clock at the top after the first exercise.
+                                if (firstExercise) {
+                                    simpleChronometer.start();
                                 }
                                 // Assume that metadata:type came into correctly. There is still
                                 // possibility that this type can be differ than media type on URL.
