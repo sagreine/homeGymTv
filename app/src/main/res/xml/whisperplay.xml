@@ -5,7 +5,7 @@
             <accessLevels>
                 <accessLevel>ALL</accessLevel>
             </accessLevels>
-            <startService>com.amazon.whisperplay.fling.media.player.CustomMediaPlayerService</startService>
+            <startService>com.sagre1.whisperplay.fling.media.player.activity.activity.CustomMediaPlayerService</startService>
         </service>
     </services>
 </whisperplay>

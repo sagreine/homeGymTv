@@ -8,7 +8,7 @@
  * Use is subject to license terms.
  */
 
-package com.amazon.whisperplay.fling.media.player.activity;
+package com.sagre1.whisperplay.fling.media.player.activity.activity;
 
 import android.view.SurfaceHolder;
 

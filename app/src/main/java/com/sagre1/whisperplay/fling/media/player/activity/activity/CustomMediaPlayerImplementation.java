@@ -8,7 +8,7 @@
  * Use is subject to license terms.
  */
 
-package com.amazon.whisperplay.fling.media.player;
+package com.sagre1.whisperplay.fling.media.player.activity.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -20,9 +20,7 @@ import android.media.MediaPlayer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceHolder;
-import android.widget.Chronometer;
 
-import com.amazon.whisperplay.fling.media.player.activity.MediaViewer;
 import com.amazon.whisperplay.fling.media.service.MediaPlayerInfo;
 import com.amazon.whisperplay.fling.media.service.MediaPlayerStatus;
 import com.amazon.whisperplay.fling.media.service.CustomMediaPlayer;
@@ -36,8 +34,6 @@ import org.json.JSONTokener;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;

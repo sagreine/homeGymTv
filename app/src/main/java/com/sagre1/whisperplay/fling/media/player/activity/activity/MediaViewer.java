@@ -8,7 +8,7 @@
  * Use is subject to license terms.
  */
 
-package com.amazon.whisperplay.fling.media.player.activity;
+package com.sagre1.whisperplay.fling.media.player.activity.activity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -32,13 +32,12 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Chronometer;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.amazon.whisperplay.fling.media.player.R;
+import com.sagre1.whisperplay.fling.media.player.R;
 import com.amazon.whisperplay.fling.media.service.MediaPlayerInfo;
 import com.amazon.whisperplay.fling.media.service.MediaPlayerStatus;
 import com.amazon.whisperplay.fling.media.service.MediaPlayerStatus.MediaState;
@@ -52,8 +51,6 @@ import org.json.JSONTokener;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.List;
 
 public class MediaViewer extends Activity {
     private static final String TAG = "MediaViewer";

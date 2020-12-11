@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context="com.amazon.whisperplay.fling.media.player.activity.MediaViewer">
+    tools:context="com.sagre1.whisperplay.fling.media.player.activity.activity.MediaViewer">
 
     <View
         android:id="@+id/centerShim"

@@ -1,4 +1,4 @@
-package com.amazon.whisperplay.fling.media.player;
+package com.sagre1.whisperplay.fling.media.player.activity.activity;
 
 import android.app.Activity;
 import android.content.res.Configuration;
@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
+import com.sagre1.whisperplay.fling.media.player.R;
 import com.amazon.whisperplay.fling.media.service.MediaPlayerStatus;
 
 public class LauncherSplashActivity extends Activity {

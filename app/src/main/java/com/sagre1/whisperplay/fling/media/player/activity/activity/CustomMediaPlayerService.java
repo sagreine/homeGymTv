@@ -8,13 +8,12 @@
  * Use is subject to license terms.
  */
 
-package com.amazon.whisperplay.fling.media.player;
+package com.sagre1.whisperplay.fling.media.player.activity.activity;
 
 import android.content.Intent;
 import android.os.IBinder;
 import android.view.SurfaceHolder;
 
-import com.amazon.whisperplay.fling.media.player.activity.IMediaViewControl;
 import com.amazon.whisperplay.fling.media.service.MediaPlayerHostService;
 import com.amazon.whisperplay.fling.media.service.CustomMediaPlayer;
 import com.amazon.whisperplay.fling.media.service.CustomMediaPlayer.StatusListener;
