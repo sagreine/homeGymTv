@@ -21,8 +21,8 @@ android {
         applicationId "com.sagre1.whisperplay.fling.media.player"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "3.0"
     }
     buildTypes {
         release {
