@@ -373,6 +373,9 @@ public class MediaViewer extends Activity {
                                 int next_lift_reps = 0;
                                 int next_lift_weight = 0;
 
+                                String weightShown = "";
+                                String next_lift_weightShown = "";
+
                                 int assistance_reps_pull = 0;
                                 int assistance_reps_push = 0;
                                 int assistance_reps_core = 0;
@@ -423,10 +426,24 @@ public class MediaViewer extends Activity {
                                     Log.e(TAG, "JSONException", e);
                                 }
                                 mMediaTitle.setText(media_title);
-                                mRepsXWeight.setText(String.valueOf(reps) + "x" + String.valueOf(weight));
+                                if(weight == 0)
+                                {
+                                    weightShown = " reps";
+                                }
+                                else {
+                                    weightShown =  "x" + String.valueOf(weight);
+                                }
+                                if(next_lift_weight == 0)
+                                {
+                                    next_lift_weightShown = " reps";
+                                }
+                                else {
+                                    next_lift_weightShown =  "x" + String.valueOf(next_lift_weight);
+                                }
+                                mRepsXWeight.setText(String.valueOf(reps) + weightShown);
                                 mMediaDescription.setText(description);
                                 mNLMediaTitle.setText(next_lift_title);
-                                mNLRepsXWeight.setText(String.valueOf(next_lift_reps) + "x" + String.valueOf(next_lift_weight));
+                                mNLRepsXWeight.setText(String.valueOf(next_lift_reps) + next_lift_weightShown);
                                 mNLMediaDescription.setText(next_lift_description);
                                 //mAssistanceCore.setText(String.valueOf(assistance_reps_core) + " reps of: " + assistance_lifts_core);
                                 //mAssistancePull.setText(String.valueOf(assistance_reps_pull) + " reps of: " + assistance_lifts_pull);
